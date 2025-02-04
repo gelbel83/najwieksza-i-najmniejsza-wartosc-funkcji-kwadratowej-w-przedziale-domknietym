@@ -14,7 +14,7 @@
             return a * (x * x) + b * x + c;
         }
 
-        string restartInput;//t lub n
+        string? restartInput;//t lub n
         string dash = "------------------------------------------------------------------------------------------------";
 
         Console.WriteLine(dash);
