@@ -2,11 +2,11 @@
 {  
     public static void Main()
     {
-        double a , b, c;//współczynniki funkcji
-        double a1, a2;//argumenty ciagu 
-        double p;//argument wierzcholka
+        double a , b, c;
+        double a1, a2;
+        double p;
 
-        List<double> values = new List<double>();//wartosci z ktorych program wybiera najmiejsza i najwieksza(f(a1) i f(a2) i ewentualnie q)
+        List<double> values = new List<double>();
 
         //f(x) = ax² + bx + c 
         double f(double x)
@@ -23,7 +23,6 @@
         do
         {
             Console.WriteLine(dash);
-            //TryParse - zwraca false jesli nie mozna przekonwertowac, a jesli sie da normalnie zapisuej wartosc
             do
             {
                 Console.Write("Wprowadz a: ");
@@ -39,11 +38,9 @@
                 Console.Write("Wprowadz c: ");
             } while(!double.TryParse(Console.ReadLine(), out c));
 
-            //wypisac wzor funkcji kwadratowej
             Console.WriteLine(dash);
             PrintFunction(a,b,c);
 
-            
             do
             {
                 Console.WriteLine(dash);
@@ -62,16 +59,13 @@
                     Console.WriteLine(dash);
                     Console.WriteLine("Koniec przedzialu nie moze byc wiekszy niz jego poczatek!");
                 }
-            }while(a1 > a2);//poczatek przedzialu musi byc zawsze mniejszy od konca
+            }while(a1 > a2);
 
-            //obliczyc p
             p = -b / (2 * a);
             
             Console.WriteLine(dash);
-            //wypisac p
             Console.WriteLine("p = {0} / (2 * {1}) = {2}",-b,a,p);
 
-            //dodać f(a1) i f(a2) ponieważ beda porównywanymi wartosciami w obu przypadkach
             values.Add(f(a1));
             values.Add(f(a2));
 
@@ -86,9 +80,7 @@
                 Console.WriteLine("p nie nalezy do [{0},{1}]",a1,a2);
             }
 
-            //wypisać wartosci
             Console.WriteLine(dash);
-            //używam values[0] i values[1] zamiast kolejnego wywołania funkcji f() ponieważ już ją komputer wyliczyl i zapisał w liscie
             Console.WriteLine("f(a1) = f({0}) = {1}", a1, values[0]);   
             Console.WriteLine("f(a2) = f({0}) = {1}", a2, values[1]);   
 
@@ -97,12 +89,10 @@
                 Console.WriteLine("f(p) = f({0}) = {1}", p, values[2]);
             }
             
-            //wypisac najmniejsza i najwieksza wartosc
             Console.WriteLine(dash);
             Console.WriteLine("Najmniejsza wartosc: " + values.Min());
             Console.WriteLine("Największa wartosc: " + values.Max());
 
-            //zapytac uzytkownika czy chce jeszcze raz
             Console.WriteLine(dash);
             do
             {
@@ -117,7 +107,7 @@
     //Funkcja do wypisania wzoru funkcji kwadratowej aby użytkownik mógł sie upewnić że dobrze wpisał wartosci a, b i c
     static void PrintFunction(double a, double b, double c)
     {
-        string aStr, bStr, cStr;//współczynniki funkcji jako ciągi znaków
+        string aStr, bStr, cStr;
 
         //-1x² -> -x² i 1x² -> x²
         if(a == -1)
