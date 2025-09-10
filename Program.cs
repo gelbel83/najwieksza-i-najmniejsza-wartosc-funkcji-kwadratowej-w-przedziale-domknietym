@@ -2,7 +2,7 @@
 {  
     public static void Main()
     {
-        double a , b, c;
+        double a, b, c;
         double a1, a2;
         double p;
 
@@ -39,7 +39,7 @@
             } while(!double.TryParse(Console.ReadLine(), out c));
 
             Console.WriteLine(dash);
-            PrintFunction(a,b,c);
+            PrintFunction(a, b, c);
 
             do
             {
@@ -72,22 +72,20 @@
             //jesli p ∈ [a1,a2] -> dodać q = f(p)
             if (p >= a1 && p <= a2)
             {
-                Console.WriteLine("p nalezy do [{0},{1}]",a1,a2);
+                Console.WriteLine("p nalezy do [{0},{1}]", a1, a2);
                 values.Add(f(p));         
             }
             else
             {
-                Console.WriteLine("p nie nalezy do [{0},{1}]",a1,a2);
+                Console.WriteLine("p nie nalezy do [{0},{1}]", a1, a2);
             }
 
             Console.WriteLine(dash);
             Console.WriteLine("f(a1) = f({0}) = {1}", a1, values[0]);   
             Console.WriteLine("f(a2) = f({0}) = {1}", a2, values[1]);   
 
-            if (values.Count == 3)
-            {
-                Console.WriteLine("f(p) = f({0}) = {1}", p, values[2]);
-            }
+            if (values.Count == 3) Console.WriteLine("f(p) = f({0}) = {1}", p, values[2]);
+
             
             Console.WriteLine(dash);
             Console.WriteLine("Najmniejsza wartosc: " + values.Min());
@@ -110,58 +108,25 @@
         string aStr, bStr, cStr;
 
         //-1x² -> -x² i 1x² -> x²
-        if(a == -1)
-        {
-            aStr = "-x^2 ";
-        }
-        else if(a == 1)
-        {
-            aStr = "x^2 ";
-        }
-        else
-        {
-            aStr = a.ToString() + "x^2 ";
-        }
+        if(a == -1) aStr = "-x^2 ";
+        else if(a == 1) aStr = "x^2 ";
+        else aStr = a.ToString() + "x^2 ";
 
         //np. '-5' -> '- 5x' albo '6' -> '+ 6x' albo 0 -> ''
         if(b < 0)
         {
-            if(b == -1)
-            {
-                bStr = "- x ";
-            }
-            
-            else
-            {
-                bStr = "- " + (-b).ToString() + "x ";
-            }   
+            if(b == -1) bStr = "- x ";
+            else bStr = "- " + (-b).ToString() + "x ";
         }
-        else if(b == 0)
-        {
-            bStr = "";
-        }
-        else if(b == 1)
-        {
-            bStr = "+ x ";
-        }
-        else
-        {
-            bStr = "+ " + b.ToString() + "x ";
-        }
+        else if(b == 0) bStr = "";
+        else if(b == 1) bStr = "+ x ";
+        else bStr = "+ " + b.ToString() + "x ";
+
 
         //np. '-2' -> '- 2' albo '9' -> '+ 9' albo 0 -> ''
-        if(c < 0)
-        {
-            cStr = "- " + (-c).ToString();
-        }
-        else if(c == 0)
-        {
-            cStr = "";
-        }
-        else
-        {
-            cStr = "+ " + c.ToString();
-        }
+        if(c < 0) cStr = "- " + (-c).ToString();
+        else if(c == 0) cStr = "";
+        else cStr = "+ " + c.ToString();
 
         Console.WriteLine("f(x) = " + aStr + bStr + cStr);
     }
